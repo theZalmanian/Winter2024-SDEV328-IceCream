@@ -13,6 +13,24 @@
         <h1>
             Thank you for you order!
         </h1>
+
+        <?php
+            // display given order
+            echo "<pre>" . var_dump($_POST) . "</pre>";
+
+            // get values of order
+            $scoops = $_POST["scoops"];
+            $flavors = $_POST["flavor"];
+            $cone = $_POST["cone"];
+
+            // format all flavors in string
+            $formattedFlavors = implode(", ", $flavors);
+
+            // display summary
+            echo "<p>Scoops: {$scoops}</p>";
+            echo "<p>Flavors: {$formattedFlavors}</p>";
+            echo "<p>Cone: {$cone}</p>"
+        ?>
     </div>
-    </body>
+</body>
 </html>
