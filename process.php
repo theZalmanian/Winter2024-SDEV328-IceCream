@@ -1,3 +1,13 @@
+<?php
+    // display errors (when needed)
+    //    ini_set('display_errors', 1);
+    //    error_reporting(E_ALL);
+
+    // setup constants to calculate costs
+    define("PRICE_PER_SCOOP", 2.50);
+    define('SALES_TAX_RATE', 0.11);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +39,17 @@
             // display summary
             echo "<p>Scoops: {$scoops}</p>";
             echo "<p>Flavors: {$formattedFlavors}</p>";
-            echo "<p>Cone: {$cone}</p>"
+            echo "<p>Cone: {$cone}</p>";
+
+            // calculate costs
+            $subtotal = PRICE_PER_SCOOP * $scoops;
+            $tax = SALES_TAX_RATE * $subtotal;
+            $total = $subtotal + $tax;
+
+            // display costs
+            echo "<p>Subtotal: \${$subtotal}</p>";
+            echo "<p>Tax: \${$tax}</p>";
+            echo "<p>Total: \${$total}</p>";
         ?>
     </div>
 </body>
